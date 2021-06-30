@@ -9,6 +9,7 @@ public class Node {
 	private ArrayList<Node> subTree = new ArrayList<>();
 	
 	public ArrayList<Node> getSubTree() {
+		
 		return subTree;
 	}
 	
@@ -42,6 +43,7 @@ public class Node {
 	
 	public void calcValue () {
 		
+		System.out.println("Calculando");
 		int number = 0; 
 		if (!subTree.isEmpty()) {
 			for (Node node : subTree) {

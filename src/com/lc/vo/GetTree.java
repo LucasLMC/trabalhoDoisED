@@ -9,16 +9,17 @@ import java.util.Scanner;
 
 public class GetTree {
 
-	private Tree tree = new Tree ();
+	private Tree tree = new Tree();
 	private Scanner scan = new Scanner (System.in);
-	private List <Node> listNodes = new ArrayList<>();
+	private List<Node> listNodes = new ArrayList<>();
+
 	
-	public void Tree() {
+	public void Treee() {
 		
-		Node snack_bar = tree.firstNode("Casa");
+		Node snack = tree.firstNode("Casa");
 		
 
-		putFirstLevel(5,snack_bar);
+		putFirstLevel(5,snack);
 		
 		putOthersLevels(4,0);	
 		putOthersLevels(5,1);
@@ -33,18 +34,17 @@ public class GetTree {
 		putOthersLevels(3,16);
 		putOthersLevels(5,11);
 		putOthersLevels(28,17);
-		
-		
-		for (int i = listNodes.size(); i > 0; i--) {
-			listNodes.get(i-1).calcValue();
+	
+		for (int i = listNodes.size(); i < 0; i++) {
+			listNodes.get(i+1).calcValue();
 		}
 		
-		snack_bar.calcValue();
-		
-		System.out.println(" Valor total :" + snack_bar.getName()+ " de " + snack_bar.getValue()+":");
+		snack.calcValue();
+		System.out.println("To aqui");
+		System.out.println(" Valor total :" + snack.getName()+ " de " + snack.getValue()+":");
 	}
 	
-	public int getNumber() {
+	public int readInt() {
 		int number = scan.nextInt();
 		scan.nextLine();
 		
@@ -53,17 +53,17 @@ public class GetTree {
 
 	public void putFirstLevel(int index, Node snack_bar) {
 		for(int i=0;i<index;i++) {
-			Node node = tree.newLevel(scan.nextLine(), getNumber());
+			Node node = tree.newLevel(scan.nextLine(), readInt());
 			tree.listNodes(snack_bar,node);
 			listNodes.add(node);
 		}
 	}
 	
 	public void putOthersLevels( int index, int list) {
-		System.out.println(index);
+
 		for (int i = 0; i < index ; i++) {
 			
-			Node node = tree.newLevel(scan.nextLine(), getNumber());
+			Node node = tree.newLevel(scan.nextLine(), readInt());
 			tree.listNodes(listNodes.get(list), node);
 			listNodes.add(node);
 		}
@@ -73,7 +73,7 @@ public class GetTree {
 	public void putValues(int index, int list) {
 		for (int i = 0; i < index; i++) {
 			
-			int value = getNumber();
+			int value = readInt();
 			listNodes.get(list+i).setValue(value);
 			
 		}

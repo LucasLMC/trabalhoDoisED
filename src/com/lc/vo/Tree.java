@@ -6,7 +6,6 @@ public class Tree {
 	private int amout;
 	
 	public Node newNode(String character, int qtd) {
-		
 		Node node = new Node();
 		node.setName(character);
 		node.setQtd(qtd);
@@ -15,14 +14,13 @@ public class Tree {
 	}
 	
 	public Node firstNode (String name) {
-		
 		final int qtd = 1;
 		node = newNode(name, qtd);
 		
 		return node;
 	}
 	public Node newLevel(String name, int qtd) {
-		
+
 		Node subNode = newNode(name, qtd);
 		
 		return subNode;
@@ -30,7 +28,7 @@ public class Tree {
 	}
 	
 	public void listNodes (Node levelsNode, Node node) {
-		
+		System.out.println("new level b " + node);
 		levelsNode.getSubTree().add(node);
 		
 	}
